@@ -1,0 +1,45 @@
+/* style.css */
+
+body {
+  font-family: sans-serif;
+  padding: 20px;
+  font-size: 20px;
+  background-color: #fff;
+  color: #000;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+select, input, button {
+  font-size: 20px;
+  padding: 10px;
+  margin: 5px 0;
+}
+
+#result {
+  font-weight: bold;
+  margin-top: 15px;
+  font-size: 22px;
+}
+
+#hint {
+  font-size: 18px;
+}
+
+#explanation {
+  font-size: 18px;
+  white-space: pre-line;
+}
+
+.dark-mode {
+  background-color: #121212;
+  color: #e0e0e0;
+}
+
+.dark-mode input,
+.dark-mode select,
+.dark-mode button {
+  background-color: #2b2b2b;
+  color: #e0e0e0;
+  border: 1px solid #555;
+}
+

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>PEMDAS Math Game</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+<label for="mode">Select Mode:</label>
+<select id="mode" onchange="newQuestion()">
+  <option value="a">Addition (a)</option>
+  <option value="s">Subtraction (s)</option>
+  <option value="m">Multiplication (m)</option>
+  <option value="d">Division (d)</option>
+  <option value="e">Exponent (e)</option>
+  <option value="p">Parentheses (p)</option>
+  <option value="basic">Basic Ops (ASMD)</option>
+  <option value="algebra">Algebra (Coming Soon)</option>
+  <option value="geometry">Geometry (Coming Soon)</option>
+  <option value="free" selected>Free PEMDAS</option>
+</select>
+
+<label for="difficulty">Select Difficulty:</label>
+<select id="difficulty" onchange="newQuestion()">
+  <option value="1">Level 1 (1-10)</option>
+  <option value="2">Level 2 (1-25)</option>
+  <option value="3">Level 3 (1-50)</option>
+  <option value="4">Level 4 (1-100)</option>
+  <option value="5">Level 5 (1-150)</option>
+  <option value="6">Level 6 (1-200)</option>
+  <option value="7">Level 7 (1-300)</option>
+  <option value="8">Level 8 (1-400)</option>
+  <option value="9">Level 9 (1-500)</option>
+  <option value="10">Level 10 (1-1000)</option>
+</select>
+
+  <h1>PEMDAS Math Game</h1>
+  <p id="question"></p>
+  <input type="number" id="userAnswer" placeholder="Enter your answer" />
+  <button onclick="checkAnswer()">Submit</button>
+  <div id="result"></div>
+  <button onclick="newQuestion()">Next Question</button>
+
+<br><br>
+<button onclick="toggleCalculator()">Calculator</button>
+<button onclick="showHint()">Hint</button>
+
+<div id="calculator" style="display:none; margin-top:10px;">
+  <input type="text" id="calcInput" placeholder="Type expression..." />
+  <button onclick="useCalculator()">=</button>
+  <span id="calcOutput"></span>
+</div>
+
+<div id="hint" style="margin-top:10px; color:blue;"></div>
+<div id="explanation" style="margin-top:10px; color:purple;"></div>
+
+  <script src="mathgame.js"></script>
+
+<br><br>
+<button onclick="toggleDarkMode()">Toggle Dark Mode</button>
+
+<script>
+function toggleDarkMode() {
+  const body = document.body;
+  const isDark = body.classList.toggle("dark-mode");
+  localStorage.setItem("darkMode", isDark);
+}
+
+// Load dark mode if saved
+window.onload = function () {
+  if (localStorage.getItem("darkMode") === "true") {
+    document.body.classList.add("dark-mode");
+  }
+};
+</script>
+
+</body>
+</html>
+
