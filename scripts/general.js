@@ -1,49 +1,55 @@
-// Initial list of YouTube items – manually define here
-const youtubeItems = [
-    { type: 'video', id: 'zTTcODgQzZo' },
-    { type: 'video', id: '3DeRQ1O5GFE' },
-    { type: 'video', id: 'a_ZtF9bBwug' } // The one that was "yoinked"
+// Initial list of YouTube items – starts empty so your bash script/input can add them
+let youtubeItems = [
+    { id: 'YARwncqWaG8', type: 'video' } // AURORA - Cure For Me
 ];
 
-// Load all iframes
+// Load all iframes safely
 function loadYouTubeIframes() {
     const container = document.querySelector('.iframe-container');
+    if (!container) return;
+    
     container.innerHTML = '';
 
-    youtubeItems.forEach((item, index) => {
+    youtubeItems.forEach((item) => {
         const wrapper = document.createElement('div');
         wrapper.style.position = 'relative';
         wrapper.style.display = 'inline-block';
-        wrapper.style.margin = '10px';
 
+        // Custom Delete Button Layout
         const closeBtn = document.createElement('button');
         closeBtn.textContent = '✕';
         closeBtn.style.position = 'absolute';
-        closeBtn.style.top = '5px';
-        closeBtn.style.right = '5px';
-        closeBtn.style.background = 'rgba(0,0,0,0.5)';
+        closeBtn.style.top = '8px';
+        closeBtn.style.right = '8px';
+        closeBtn.style.background = 'rgba(220, 53, 69, 0.8)';
         closeBtn.style.color = 'white';
         closeBtn.style.border = 'none';
         closeBtn.style.borderRadius = '50%';
-        closeBtn.style.width = '24px';
-        closeBtn.style.height = '24px';
+        closeBtn.style.width = '28px';
+        closeBtn.style.height = '28px';
         closeBtn.style.cursor = 'pointer';
         closeBtn.style.zIndex = '10';
+        closeBtn.style.fontWeight = 'bold';
 
+        // Safely filters out the video by ID when clicked
         closeBtn.addEventListener('click', () => {
-            youtubeItems.splice(index, 1);
-            loadYouTubeIframes(); // Re-render without saving to localStorage
+            youtubeItems = youtubeItems.filter(v => v.id !== item.id);
+            loadYouTubeIframes(); 
         });
 
+        // Iframe Node Generation matching official properties
         const iframe = document.createElement('iframe');
-        iframe.width = "640";
-        iframe.height = "360";
+        iframe.width = "560";
+        iframe.height = "315";
         iframe.frameBorder = "0";
-        iframe.allow =
-            "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
+        iframe.style.borderRadius = "8px";
+        iframe.style.boxShadow = "0 4px 15px rgba(0,0,0,0.5)";
+        iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
         iframe.allowFullscreen = true;
-        iframe.title = `YouTube ${item.type} ${index + 1}`;
+        iframe.title = "YouTube video player";
+        iframe.setAttribute("referrerpolicy", "strict-origin-when-cross-origin");
 
+        // Uses the functional autoplay URL query string that works on live pages
         iframe.src = item.type === 'video'
             ? `https://www.youtube.com/embed/${item.id}?autoplay=1&rel=0`
             : `https://www.youtube.com/embed/videoseries?list=${item.id}&autoplay=1&rel=0`;
@@ -54,30 +60,54 @@ function loadYouTubeIframes() {
     });
 }
 
+// Hook up input and button DOM listeners
 document.addEventListener('DOMContentLoaded', () => {
     loadYouTubeIframes();
 
-    // Optional: if you have an add input field + button
     const addBtn = document.getElementById('add-btn');
     if (addBtn) {
         addBtn.addEventListener('click', addVideoFromInput);
     }
+    
+    const inputField = document.getElementById('video-url');
+    if (inputField) {
+        inputField.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                addVideoFromInput();
+            }
+        });
+    }
 });
 
-// Optional add function if you use an input field with ID #youtube-id
+// Extract IDs from inputs or full URLs securely
 function addVideoFromInput() {
-    const input = document.getElementById('youtube-id');
+    const input = document.getElementById('video-url');
     if (!input) return;
 
-    const url = input.value.trim();
-    const match = url.match(/(?:v=|\/)([0-9A-Za-z_-]{11})/);
+    const inputValue = input.value.trim();
+    if (!inputValue) return;
 
-    if (match) {
-        youtubeItems.push({ type: 'video', id: match[1] });
+    const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|shorts\/|watch\?v=|\&v=)([0-9A-Za-z_-]{11})/;
+    const match = inputValue.match(regExp);
+    
+    let videoId = '';
+    
+    if (match && match[2].length === 11) {
+        videoId = match[2];
+    } else if (inputValue.length === 11) {
+        videoId = inputValue;
+    }
+
+    if (videoId) {
+        if (youtubeItems.some(item => item.id === videoId)) {
+            alert('That video has already been yoinked!');
+            return;
+        }
+
+        youtubeItems.push({ id: videoId, type: 'video' });
         loadYouTubeIframes();
         input.value = '';
     } else {
-        alert('Invalid YouTube URL');
+        alert('Invalid YouTube Link or Video ID format.');
     }
 }
-

@@ -7,30 +7,73 @@
     <link rel="icon" type="image/x-icon" href="favicon/favicon.ico" />
     <link rel="stylesheet" href="styles/drip.css" />
     <style>
-        /* Quick style for input area */
+        /* Container layout mapping */
         #input-container {
-            margin: 20px;
+            margin: 30px auto;
+            max-width: 600px;
         }
+
+        /* Input field tailored to match Courier/Retro vibe */
         #video-url {
-            width: 60%;
-            padding: 8px;
+            width: 65%;
+            padding: 10px;
             font-size: 1em;
+            background-color: #1a1a1a;
+            border: 2px solid #8A2BE2; /* Theme Purple border */
+            color: #fff;
+            font-family: 'Courier New', Courier, monospace;
+            border-radius: 4px;
+            outline: none;
         }
+
+        #video-url:focus {
+            border-color: #ff007f; /* Glows neon pink on focus */
+            box-shadow: 0 0 10px #ff007f;
+        }
+
+        /* Form submissions button */
         #add-btn {
-            padding: 8px 12px;
+            padding: 10px 20px;
             font-size: 1em;
+            font-weight: bold;
             cursor: pointer;
+            font-family: 'Courier New', Courier, monospace;
+            background: linear-gradient(45deg, #8A2BE2, #ff007f);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            margin-left: 10px;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
         }
-        .iframe-container iframe {
-            margin: 10px;
+
+        #add-btn:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 0 12px #ff007f;
+        }
+
+        /* Video Gallery Alignments */
+        .iframe-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 20px;
         }
     </style>
 </head>
 <body>
+
+    <h1 style="color: #ff007f; margin-top: 30px; font-size: 2.5em; text-shadow: 0 0 10px rgba(255,0,127,0.3);">
+        Yoinked Playlist
+    </h1>
+
+    <div id="input-container">
+        <input type="text" id="video-url" placeholder="Paste YouTube Video URL or ID here..." />
+        <button id="add-btn">Yoink it</button>
+    </div>
 
     <div class="iframe-container"></div>
 
     <script src="scripts/general.js"></script>
 </body>
 </html>
-

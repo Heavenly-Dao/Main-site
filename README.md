@@ -29,3 +29,8 @@ This site may have something like:
 - HTML, CSS, JavaScript
 - Git & GitHub Pages
 - Markdown (for documentation)
+
+## All Recapped Via AI
+- Hate me for it gang
+- Too Lazy to be Original
+- Sucks to Suck
