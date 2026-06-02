@@ -105,3 +105,32 @@ body {
 .text-purple {
   color:#8A2BE2;
 }
+
+/* Base settings for all dividers */
+.drip-divider {
+    border: none;
+    margin: 25px auto; /* Centers them and adds space top/bottom */
+}
+
+/* Large - Topmost */
+.divider-lg {
+    width: 80%;                  /* Spans wider across the screen */
+    height: 4px;
+    /* This creates a line that fades in and out from the center */
+    background: linear-gradient(to right, transparent, #ff007f, transparent);
+}
+/* Medium - Following sections */
+.divider-md {
+    width: 60%;                  /* Spans wider across the screen */
+    height: 3px;
+    /* This creates a line that fades in and out from the center */
+    background: linear-gradient(to right, transparent, #ff007f, transparent);
+}
+
+/* Small - Extra subtle */
+.divider-sm {
+    width: 40%;                  /* Spans wider across the screen */
+    height: 2px;
+    /* This creates a line that fades in and out from the center */
+    background: linear-gradient(to right, transparent, #ff007f, transparent);
+}

@@ -1,14 +1,14 @@
-# 🧠 Heavenly Dao Project Hub & Website
+# 🧠 Heavenly Dao Project Dump
 
-> “Endless learning, endless creation.”  
-> A hub for all my creative and development projects — including games, tools, and media.
+> “**Void** of *All* joy and love.”  
+> I have some stuff guys, maybe look at it?
 
 [![Website Status](https://img.shields.io/website?down_color=red&down_message=offline&up_color=green&up_message=online&url=https%3A%2F%2Fheavenly-dao.github.io%2FMain-site)](https://heavenly-dao.github.io/Main-site)
 ![Visitors](https://komarev.com/ghpvc/?username=Heavenly-Dao&label=visits&color=blue)
 
 ---
 
-## 🔗 Live Site
+## Site
 
 ▶️ [**Click here to visit the website**](https://heavenly-dao.github.io/Main-site)
 
@@ -16,10 +16,10 @@
 
 ## 📂 Contents
 
-This site will host:
-- 🎮 Math Game Project (live now)
-- 📺 Upcoming video and creative projects
-- 🛠️ Tools, utility scripts, experiments
+This site may have something like:
+- 🎮 Math Game Project
+- 📺 Upcoming video and creative projects **(Maybe in a decade)**
+- 🛠️ Tools, utility scripts, experiments *(Possibly useful)*
 - 🧠 Personal dev logs and learning notes
 
 ---
@@ -29,4 +29,3 @@ This site will host:
 - HTML, CSS, JavaScript
 - Git & GitHub Pages
 - Markdown (for documentation)
-
