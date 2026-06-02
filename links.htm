@@ -15,8 +15,10 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
+            min-height: 100vh; /* Changed to min-height to prevent mobile overflow clipping */
             margin: 0;
+            padding: 20px;
+            box-sizing: border-box;
         }
 
         /* Layout Container */
@@ -30,35 +32,37 @@
         /* Header Title Styling */
         .container h1 {
             font-size: 2.5em;
+            margin-top: 0;
             margin-bottom: 0.8em;
-            color: #8A2BE2; /* Matches your --purple CSS variable */
+            color: #8A2BE2;
             text-shadow: 0 0 10px rgba(138, 43, 226, 0.5);
         }
 
         /* Pill Link Buttons */
         .link {
             display: block;
-            margin: 12px 0;
+            margin: 14px 0;
             padding: 12px 24px;
             text-decoration: none;
             color: #ffffff;
             font-size: 1.1em;
             
-            /* High-Drip Gradient: Mapped from your theme variables */
-            background: linear-gradient(45deg, #8A2BE2, #ff007f); 
+            /* High-Drip Gradient with extra size for smooth transitioning */
+            background: linear-gradient(45deg, #8A2BE2, #ff007f, #8A2BE2); 
+            background-size: 200% auto;
             border-radius: 25px;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
             
-            /* Smooth flip animations */
+            /* Smooth fluid movement updates */
             transition: all 0.4s ease;
         }
 
         /* Hover Interactive Effects */
         .link:hover {
-            /* Flips the gradient direction and adds a neon pulse glow */
-            background: linear-gradient(45deg, #ff007f, #8A2BE2);
+            /* Physically slides the gradient rather than snapping it instantly */
+            background-position: right center;
             box-shadow: 0 0 15px #ff007f, 0 0 25px #8A2BE2;
-            transform: translateY(-2px); /* Subtle click-me lift */
+            transform: translateY(-3px); /* Slightly increased lift for better tactile response */
         }
     </style>
 </head>

@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gradient Text Color</title>
-    <link rel="icon" type="image/x-icon" href="favicon/favicon.ico">
+    <title>Gradient Text Color Generator</title>
+    <link rel="icon" type="image/x-icon" href="../favicon/favicon.ico">
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -13,8 +13,10 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
+            min-height: 100vh;
             margin: 0;
+            padding: 20px;
+            box-sizing: border-box;
         }
 
         .gradient-text {
@@ -22,63 +24,168 @@
             background: linear-gradient(45deg, #6a5acd, #8a2be2);
             -webkit-background-clip: text;
             color: transparent;
+            margin-top: 0;
+            margin-bottom: 20px;
         }
 
         .container {
             text-align: center;
+            background: #1e1e1e;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+            max-width: 500px;
+            width: 100%;
+        }
+
+        .input-group {
+            margin-bottom: 15px;
+            text-align: left;
+        }
+
+        .input-group label {
+            display: block;
+            font-size: 0.85em;
+            color: #aaa;
+            margin-bottom: 5px;
+        }
+
+        .color-picker-wrapper {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 15px;
         }
 
         .color-picker {
+            flex: 1;
+            height: 40px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            background: transparent;
+        }
+
+        .text-input {
             width: 100%;
-            margin-bottom: 20px;
+            padding: 10px;
+            background: #2a2a2a;
+            border: 1px solid #444;
+            color: #fff;
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-family: monospace;
         }
 
         #gradientPreview {
-            height: 100px;
+            height: 80px;
             margin-top: 20px;
-            border: 1px solid #ccc;
+            border: 1px solid #444;
             border-radius: 5px;
             background: linear-gradient(45deg, #000000, #ffffff);
         }
 
-        #gradientCode {
-            font-size: 18px;
-            text-align: center;
-            margin-top: 20px;
+        .output-heading {
+            text-align: left;
+            font-size: 0.9em;
+            color: #aaa;
+            margin: 20px 0 5px 0;
+        }
+
+        .css-output {
+            width: 100%;
+            height: 140px;
+            background: #0f0f0f;
+            color: #72f1b8; /* Nice neon green/cyan coding accent */
+            border: 1px solid #333;
+            border-radius: 6px;
+            padding: 12px;
+            box-sizing: border-box;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 13px;
+            resize: none;
+            white-space: pre;
         }
     </style>
 </head>
 <body>
     <div class="container">
         <h1 class="gradient-text">Gradient Text Color</h1>
-        <h2>Gradient Color Generator</h2>
-        <input type="color" id="colorPicker1" class="color-picker" value="#000000">
-        <input type="color" id="colorPicker2" class="color-picker" value="#ffffff">
+        
+        <div class="color-picker-wrapper">
+            <input type="color" id="colorPicker1" class="color-picker" value="#6a5acd">
+            <input type="color" id="colorPicker2" class="color-picker" value="#8a2be2">
+        </div>
+
+        <div class="input-group">
+            <label for="pasteInput">Paste Existing Gradient Code:</label>
+            <input type="text" id="pasteInput" class="text-input" placeholder="e.g., linear-gradient(45deg, #ff0000, #0000ff)">
+        </div>
+
         <div id="gradientPreview"></div>
-        <div id="gradientCode">linear-gradient(45deg, #000000, #ffffff)</div>
+        
+        <div class="output-heading">Generated CSS Format:</div>
+        <textarea id="cssDisplay" class="css-output" readonly></textarea>
     </div>
+
     <script>
         const colorPicker1 = document.getElementById('colorPicker1');
         const colorPicker2 = document.getElementById('colorPicker2');
+        const pasteInput = document.getElementById('pasteInput');
         const gradientPreview = document.getElementById('gradientPreview');
-        const gradientCode = document.getElementById('gradientCode');
         const gradientText = document.querySelector('.gradient-text');
+        const cssDisplay = document.getElementById('cssDisplay');
 
+        // Main function to update UI elements and display raw CSS string formatting
         function updateGradient() {
             const color1 = colorPicker1.value;
             const color2 = colorPicker2.value;
-            const gradient = `linear-gradient(45deg, ${color1}, ${color2})`;
-            gradientPreview.style.background = gradient;
-            gradientCode.textContent = gradient;
-            gradientText.style.background = gradient;
+            const gradientValue = `linear-gradient(45deg, ${color1}, ${color2})`;
+            
+            // Apply live preview styles
+            gradientPreview.style.background = gradientValue;
+            gradientText.style.background = gradientValue;
             gradientText.style.webkitBackgroundClip = 'text';
             gradientText.style.color = 'transparent';
+
+            // Generate clean string block mimicking a real .css file structure
+            cssDisplay.value = `.custom-gradient-text {\n` +
+                               `    background: ${gradientValue};\n` +
+                               `    -webkit-background-clip: text;\n` +
+                               `    -webkit-text-fill-color: transparent;\n` +
+                               `    color: transparent;\n` +
+                               `}\n\n` +
+                               `.custom-gradient-bg {\n` +
+                               `    background: ${gradientValue};\n` +
+                               `}`;
         }
 
+        // Parses HEX colors out of a pasted CSS string
+        function handlePasteInput() {
+            const val = pasteInput.value;
+            const hexRegex = /#[0-9a-fA-F]{3,8}/g;
+            const matches = val.match(hexRegex);
+
+            if (matches && matches.length >= 2) {
+                colorPicker1.value = fixHex(matches[0]);
+                colorPicker2.value = fixHex(matches[1]);
+                updateGradient();
+            }
+        }
+
+        // Helper to ensure hex handles properly in standard HTML inputs
+        function fixHex(hex) {
+            if (hex.length === 4) {
+                return `#${hex[1]}${hex[1]}${hex[2]}${hex[2]}${hex[3]}${hex[3]}`;
+            }
+            return hex.slice(0, 7);
+        }
+
+        // Event Listeners
         colorPicker1.addEventListener('input', updateGradient);
         colorPicker2.addEventListener('input', updateGradient);
+        pasteInput.addEventListener('input', handlePasteInput);
 
-        // Initial update
+        // Initial setup run
         updateGradient();
     </script>
 </body>

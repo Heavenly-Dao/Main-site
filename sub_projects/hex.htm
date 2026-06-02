@@ -4,52 +4,178 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Color to Hex Converter</title>
-    <link rel="icon" type="image/x-icon" href="favicon/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="../favicon/favicon.ico">
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f0f0f0;
+            background-color: #121212;
+            color: #ffffff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+            box-sizing: border-box;
         }
 
         .container {
-            max-width: 400px;
-            margin: 50px auto;
-            padding: 20px;
-            background-color: #fff;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            background: #1e1e1e;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+            max-width: 450px;
+            width: 100%;
         }
 
         h1 {
-            text-align: center;
+            margin-top: 0;
+            margin-bottom: 20px;
+            font-size: 1.8em;
         }
 
         #colorPicker {
             width: 100%;
-            margin-bottom: 20px;
+            height: 50px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            background: transparent;
+            margin-bottom: 15px;
+        }
+
+        .input-group {
+            margin-bottom: 15px;
+            text-align: left;
+        }
+
+        .input-group label {
+            display: block;
+            font-size: 0.85em;
+            color: #aaa;
+            margin-bottom: 5px;
+        }
+
+        .text-input {
+            width: 100%;
+            padding: 10px;
+            background: #2a2a2a;
+            border: 1px solid #444;
+            color: #fff;
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-family: monospace;
+            font-size: 14px;
         }
 
         #hexValue {
-            font-size: 24px;
+            font-size: 18px;
+            font-family: monospace;
             text-align: center;
-            margin-top: 20px;
+            margin: 15px 0;
+            color: #aaa;
+        }
+
+        .output-heading {
+            text-align: left;
+            font-size: 0.9em;
+            color: #aaa;
+            margin: 20px 0 5px 0;
+        }
+
+        .css-output {
+            width: 100%;
+            height: 120px;
+            background: #0f0f0f;
+            color: #72f1b8; /* Coding accent color */
+            border: 1px solid #333;
+            border-radius: 6px;
+            padding: 12px;
+            box-sizing: border-box;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 13px;
+            resize: none;
+            white-space: pre;
         }
     </style>
 </head>
 <body>
     <div class="container">
         <h1>Color to Hex Converter</h1>
-        <input type="color" id="colorPicker">
-        <div id="hexValue"></div>
+        
+        <input type="color" id="colorPicker" value="#6a5acd">
+
+        <div class="input-group">
+            <label for="pasteInput">Paste Existing HEX Code:</label>
+            <input type="text" id="pasteInput" class="text-input" placeholder="e.g., #6a5acd or 6a5acd">
+        </div>
+
+        <div id="hexValue">Hex Value: #6a5acd</div>
+        
+        <div class="output-heading">Generated CSS Format:</div>
+        <textarea id="cssDisplay" class="css-output" readonly></textarea>
     </div>
+
     <script>
         const colorPicker = document.getElementById('colorPicker');
+        const pasteInput = document.getElementById('pasteInput');
         const hexValue = document.getElementById('hexValue');
+        const cssDisplay = document.getElementById('cssDisplay');
 
-        colorPicker.addEventListener('input', () => {
+        // Updates the text displays, color values, and output formatting
+        function updateColorDisplay() {
             const color = colorPicker.value;
+            
+            // Update pure hex label
             hexValue.textContent = `Hex Value: ${color}`;
-        });
+
+            // Generate CSS classes for standard styling
+            cssDisplay.value = `.custom-text-color {\n` +
+                               `    color: ${color};\n` +
+                               `}\n\n` +
+                               `.custom-bg-color {\n` +
+                               `    background-color: ${color};\n` +
+                               `}`;
+        }
+
+        // Extracts a solid hex value from pasted strings
+        function handlePasteInput() {
+            let val = pasteInput.value.trim();
+            
+            // Regex handles strings with or without standard '#' symbol
+            const hexRegex = /#?([0-9a-fA-F]{3,6})/g;
+            const matches = val.match(hexRegex);
+
+            if (matches && matches.length > 0) {
+                let targetHex = matches[0];
+                
+                // Add hash symbol if missing for the DOM element value requirement
+                if (!targetHex.startsWith('#')) {
+                    targetHex = '#' + targetHex;
+                }
+
+                // Expand shorthand 3-character hex tokens to standard 6-characters
+                if (targetHex.length === 4) {
+                    targetHex = `#${targetHex[1]}${targetHex[1]}${targetHex[2]}${targetHex[2]}${targetHex[3]}${targetHex[3]}`;
+                }
+
+                // Slice down if text contains excess trailing format data
+                if (targetHex.length > 7) {
+                    targetHex = targetHex.slice(0, 7);
+                }
+
+                colorPicker.value = targetHex;
+                updateColorDisplay();
+            }
+        }
+
+        // Event Listeners
+        colorPicker.addEventListener('input', updateColorDisplay);
+        pasteInput.addEventListener('input', handlePasteInput);
+
+        // Run on initial load
+        updateColorDisplay();
     </script>
 </body>
 </html>
