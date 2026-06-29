@@ -1,170 +1,185 @@
 /* Define colors as CSS variables */
 :root {
-  --purple: #8A2BE2;
-  --crimson: #DC143C;
-  --gold: #FFD700;
-  --blue: #87CEEB;
+    --purple: #8a2be2;
+    --crimson: #dc143c;
+    --gold: #ffd700;
+    --blue: #87ceeb;
 }
 
 /* Body styles */
 body {
-  background: black;
-  color: white;
-  font: bold 16px courier;
-  text-align: center;
+    background: black;
+    color: white;
+    font: bold 16px courier;
+    text-align: center;
 }
 
 /* Container adjustments */
 .image-section,
 .page-links-container {
-  text-align: center;
-  margin-bottom: 20px; /* Increased from 1px to provide a clean section break */
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 10px; /* Increased from 1px to provide a clean section break */
+    border: 1.5px solid rgb(210, 30, 180);
 }
 
 /* Adjustments for Image Gallery */
 .image-gallery {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  max-width: 1200px; /* Reduced from 2500px so images don't swallow the page on wide screens */
-  margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 1200px; /* Reduced from 2500px so images don't swallow the page on wide screens */
+    margin: 0 auto;
 }
 
 .image-gallery img {
-  width: 100%;
-  height: auto;
-  margin: 1px;
+    width: 100%;
+    height: auto;
+    margin: 1px;
 }
 
 /* Page Links styles */
 .other_html a {
-  display: block;
-  margin: 8px 0; /* Slightly increased for easier clicking/tapping */
-  color: var(--blue);
-  text-decoration: none;
-}
-
-/* Container for Page Links */
-.page-links-container {
-  padding: 15px; /* Increased from 1px so text isn't suffocating against the yellow border */
-  border: 1px solid yellow;
+    display: block;
+    margin: 4px; /* Slightly increased for easier clicking/tapping */
+    color: var(--blue);
+    text-decoration: none;
 }
 
 /* Heading for Page Links */
 .page-links-container h2 {
-  margin-bottom: 10px;
-  color: #fff; /* Changed from dark #333 to #fff so it's actually visible on a black background! */
+    margin-bottom: 10px;
+    color: #fff; /* Changed from dark #333 to #fff so it's actually visible on a black background! */
 }
 
 /* Iframe styles */
 .iframes {
-  margin-top: 30px;
-  text-align: center;
+    margin-top: 30px;
+    text-align: center;
 }
 
 /* Common styles for titles and text */
 .text {
-  font-weight: bold;
+    font-weight: bold;
 }
 
 /* Individual title styles */
 .gradient-text {
-  font-size: 1.5em;
-  background: linear-gradient(45deg, var(--purple), var(--crimson), var(--gold));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  color: transparent;
+    font-size: 1.5em;
+    background: linear-gradient(
+        45deg,
+        var(--purple),
+        var(--crimson),
+        var(--gold)
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
 }
 
 /* Individual text styles */
 .text-blue {
-  color: var(--blue);
+    color: var(--blue);
 }
 
 .text-red {
-  color: red;
+    color: red;
 }
 
 .text-green {
-  color: green;
+    color: green;
 }
 
 .text-purple {
-  color: var(--purple); /* Updated to use your CSS variable cleanly */
+    color: var(--purple); /* Updated to use your CSS variable cleanly */
 }
 
 /* Dividers */
 
 /* Base settings for all dividers */
 .drip-divider {
-  border: none;
-  margin: 25px auto; 
+    border: none;
+    margin: 25px auto;
 }
 
 /* Large - Topmost */
 .divider-lg {
-  width: 75%;                  
-  height: 4px;
-  background: linear-gradient(to right, transparent, #ff007f, transparent);
+    width: 75%;
+    height: 4px;
+    background: linear-gradient(to right, transparent, #ff007f, transparent);
 }
 
 /* Medium - Following sections */
 .divider-md {
-  width: 60%;                  
-  height: 3px;
-  background: linear-gradient(to right, transparent, #c82828, transparent);
+    width: 60%;
+    height: 3px;
+    background: linear-gradient(to right, transparent, #c82828, transparent);
 }
 
 /* Small - Extra subtle */
 .divider-sm {
-  width: 35%;                  
-  height: 2px;
-  background: linear-gradient(60deg, transparent, #7115c6, #2f16d0, transparent);
+    width: 35%;
+    height: 2px;
+    background: linear-gradient(
+        60deg,
+        transparent,
+        #7115c6,
+        #2f16d0,
+        transparent
+    );
 }
 
 /* Elemental Glow Effects */
 
 /* Earth - Deep Green/Gold Glow */
 .element-earth {
-  color: #fff;
-  text-shadow: 0 0 8px #4caf50, 0 0 15px #8bc34a;
-  font-weight: bold;
-  margin-right: 5px;
+    color: #fff;
+    text-shadow:
+        0 0 8px #4caf50,
+        0 0 15px #8bc34a;
+    font-weight: bold;
+    margin-right: 5px;
 }
 
 /* Water - Deep Blue/Cyan Glow */
 .element-water {
-  color: #fff;
-  text-shadow: 0 0 8px #00bcd4, 0 0 15px #2196f3;
-  font-weight: bold;
-  margin-right: 5px;
+    color: #fff;
+    text-shadow:
+        0 0 8px #00bcd4,
+        0 0 15px #2196f3;
+    font-weight: bold;
+    margin-right: 5px;
 }
 
 /* Fire - Crimson/Orange Glow */
 .element-fire {
-  color: #fff;
-  text-shadow: 0 0 8px #ff5722, 0 0 15px #f44336;
-  font-weight: bold;
-  margin-right: 5px;
+    color: #fff;
+    text-shadow:
+        0 0 8px #ff5722,
+        0 0 15px #f44336;
+    font-weight: bold;
+    margin-right: 5px;
 }
 
 /* Wind - Pale Green/White Sky Glow */
 .element-wind {
-  color: #fff;
-  text-shadow: 0 0 8px #e0e0e0, 0 0 15px #b2dfdb;
-  font-weight: bold;
+    color: #fff;
+    text-shadow:
+        0 0 8px #e0e0e0,
+        0 0 15px #b2dfdb;
+    font-weight: bold;
 }
 
 /* Hoverable Structural Container Group */
 .hoverable-group {
-  font-size: 1.17em;         
-  font-weight: bold;         
-  text-align: center;        
+    font-size: 1.17em;
+    font-weight: bold;
+    text-align: center;
 }
 
 /* Tightens individual hover lines */
 .hoverable-group > div {
-  margin-bottom: 8px; /* Tightly controls vertical stacking gaps */
-  line-height: 1.4;   
+    margin-bottom: 8px; /* Tightly controls vertical stacking gaps */
+    line-height: 1.4;
 }

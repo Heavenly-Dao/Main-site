@@ -1,0 +1,27 @@
+body {
+    background-color: #02010d;
+    text-align: center;
+}
+
+h1 {
+    color: #fff;
+    text-shadow:
+        0 0 8px darkviolet,
+        0 0 15px violet;
+}
+
+h2 {
+    color: #fff;
+    text-shadow:
+        0 0 8px mediumseagreen,
+        0 0 15px forestgreen;
+}
+
+p {
+    color: #fff;
+    text-shadow:
+        0 0 8px #ff5722,
+        0 0 15px #f44336;
+    font-weight: bold;
+    margin-right: 5px;
+}

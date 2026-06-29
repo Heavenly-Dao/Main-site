@@ -20,7 +20,7 @@ This site may have something like:
 - 🎮 Math Game Project
 - 📺 Upcoming video and creative projects **(Maybe in a decade)**
 - 🛠️ Tools, utility scripts, experiments *(Possibly useful)*
-- 🧠 Personal dev logs and learning notes
+- 🧠 Check my other Repo for my own learning and dev logs; [Dev](https://github.com/Heavenly-Dao/git-web-dev-progression)
 
 ---
 
@@ -34,3 +34,6 @@ This site may have something like:
 - Hate me for it gang
 - Too Lazy to be Original
 - Sucks to Suck
+
+## If Applicable
+- if this gets to an truly satisfactory stage, I will accept suggestions and advice.
