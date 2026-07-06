@@ -18,9 +18,14 @@
 
 This site may have something like:
 - 🎮 Math Game Project
+
 - 📺 Upcoming video and creative projects **(Maybe in a decade)**
+
 - 🛠️ Tools, utility scripts, experiments *(Possibly useful)*
-- 🧠 Check my other Repo for my own learning and dev logs; [Dev](https://github.com/Heavenly-Dao/git-web-dev-progression)
+
+- 🧠 Check my other Repo for my own learning and dev logs; 
+
+- [Dev](https://github.com/Heavenly-Dao/git-web-dev-progression)
 
 ---
 

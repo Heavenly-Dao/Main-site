@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Link Directory</title>
+        <link rel="icon" type="image/x-icon" href="favicon/favicon.ico" />
+        <style>
+            /* Base Page Configurations */
+            body {
+                background-color: #000000;
+                color: #ffffff;
+                font-family: "Courier New", Courier, monospace;
+                font-weight: bold;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                min-height: 100vh; /* Changed to min-height to prevent mobile overflow clipping */
+                margin: 0;
+                padding: 20px;
+                box-sizing: border-box;
+            }
+
+            /* Layout Container */
+            .container {
+                text-align: center;
+                width: 100%;
+                max-width: 400px;
+                padding: 20px;
+            }
+
+            /* Header Title Styling */
+            .container h1 {
+                font-size: 2.5em;
+                margin-top: 0;
+                margin-bottom: 0.8em;
+                color: #8a2be2;
+                text-shadow: 0 0 10px rgba(138, 43, 226, 0.5);
+            }
+
+            /* Pill Link Buttons */
+            .link {
+                display: block;
+                margin: 14px 0;
+                padding: 12px 24px;
+                text-decoration: none;
+                color: #ffffff;
+                font-size: 1.1em;
+
+                /* High-Drip Gradient with extra size for smooth transitioning */
+                background: linear-gradient(45deg, #8a2be2, #ff007f, #8a2be2);
+                background-size: 200% auto;
+                border-radius: 25px;
+                box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+
+                /* Smooth fluid movement updates */
+                transition: all 0.4s ease;
+            }
+
+            /* Hover Interactive Effects */
+            .link:hover {
+                /* Physically slides the gradient rather than snapping it instantly */
+                background-position: right center;
+                box-shadow:
+                    0 0 15px #ff007f,
+                    0 0 25px #8a2be2;
+                transform: translateY(
+                    -3px
+                ); /* Slightly increased lift for better tactile response */
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <h1>Link Directory</h1>
+            <a href="idk.html" class="link" target="_blank">Idk</a>
+            <a
+                href="game/math_game_project/index.html"
+                class="link"
+                target="_blank"
+                >Math Game</a
+            >
+            <a href="YT.html" class="link" target="_blank">Youtube Videos</a>
+            <a href="doc.html" class="link" target="_blank">Gooo Gel Doocs</a>
+            <a href="sub_projects/hex.html" class="link" target="_blank"
+                >Hex Colors</a
+            >
+            <a href="sub_projects/gradient.html" class="link" target="_blank"
+                >Gradient Generator</a
+            >
+            <a href="jap/jpn-sounds.html" class="link" target="_blank"
+                >JPN-Dictionary (Bad)</a
+            >
+            <a href="jap/jap-game/index.html" class="link" target="_blank"
+                >JPN-Game</a
+            >
+            <a href="honest-journal.html" class="link" target="_blank"
+                >Journal Honest?</a
+            >
+        </div>
+    </body>
+</html>

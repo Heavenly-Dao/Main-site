@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Japanese Typing Practice</title>
+        <link rel="icon" type="image/x-icon" href="../../favicon/favicon.ico" />
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <div class="game-container">
+            <h1>かな Practice</h1>
+            <div class="card">
+                <p class="hint-label">Meaning / Prompt:</p>
+                <p id="prompt-word" class="prompt">Loading...</p>
+            </div>
+
+            <input
+                type="text"
+                id="user-input"
+                placeholder="Type the Japanese here..."
+                autocomplete="off"
+                autofocus
+            />
+
+            <div id="feedback" class="feedback"></div>
+            <p class="score">Score: <span id="score-count">0</span></p>
+            <a href="../jpn-sounds.html" class="link" target="_blank"
+                >JPN-Dictionary (Bad)</a
+            >
+        </div>
+
+        <script src="app.js"></script>
+    </body>
+</html>
