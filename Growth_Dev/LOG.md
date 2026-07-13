@@ -8,7 +8,9 @@ day 7 - i see i can not do the set time daily goal i made, thus next week will b
 
 ## Week 1 [for reference in log entries, the numbers mean; theory time (learning), in practice time (changes and doing), if sole number usually just practice time ]
 
-(6-22-26)day 1 - changed some colors and format of index.html (main-site) (30 mins)
+(6-22-26)
+
+day 1 - changed some colors and format of index.html (main-site) (30 mins)
 
 day 2 - created an new test page and connected css file (1,17 mins)
 
@@ -23,6 +25,7 @@ day 6 - didnt do shite, thought had plans (retrospective of day 7), didnt really
 day 7 - create some basic html notes (week 1 end) (6 mins)
 
 ## Week 2 [forgoing time meters for daily things] (6-29-26)
+
 day 1 - made an html.html and thats that, will reword later
 
 day 2 - did as above and.. a little more, converting old html.md into html.html content
@@ -37,8 +40,8 @@ day 6 - did whole lot more of LMM'ing my future
 
 day 7 - didnt do much, surprisingly kinda had a life (week 2 end)
 
-
-
+## Week 3 [back on track, now ill go just by what i did weekly henceforth] (7-6-26)
+this week - did more llm'ing my future, flake'd and home-manager'd my nix file setup.  was pretty easy and didnt take much time.
 
 
 

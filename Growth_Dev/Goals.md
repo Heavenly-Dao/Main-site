@@ -19,15 +19,26 @@ more
 ## eventually
 
 game dev (web, roblox, unity, godot, such)
+
 software dev (idk)
+
 hardware learning and maybe robots
+
 LLM training and such
+
 Neural Network learning
+
 making browser tier stuff; extensions, games, websites (all though there are like ai site makers that are pretty easy, i ill likely just use flask and jinja2 what not)
 video and image editing'
+
 streaming
+
 using git repos (and possibly more other self stuff later) for having notes, and "guides" for others
-never really "pay-walling" anything, only donations and support, if pay; only like for following CTT and it being some easier "packaged" method (like CTT windows utilty)
+
+never really "pay-walling" anything, only donations and support, if pay; only like for following CTT and it being 
+
+some easier "packaged" method (like CTT windows utilty)
+
 Mods (for like terraria, minecraft, and such)
 
 
