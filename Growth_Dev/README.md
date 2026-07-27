@@ -11,6 +11,6 @@ but the goals are to learn HTML, CSS, JS, and PYTHON
 [I have sent this previous different repo into the void]
 
 ### Mentality
-THE IDEAL META MENTALITY FOR CAVEMEN V.1:
+THE IDEAL META MENTALITY FOR CAVEMEN V.3:
 
 * [My Meta ANALYSIS OF GODHOOD](./DEV-MENTALITY.md)

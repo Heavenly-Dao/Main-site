@@ -43,8 +43,13 @@ day 7 - didnt do much, surprisingly kinda had a life (week 2 end)
 ## Week 3 [back on track, now ill go just by what i did weekly henceforth] (7-6-26)
 this week - did more llm'ing my future, flake'd and home-manager'd my nix file setup.  was pretty easy and didnt take much time.
 
+## Week 4 (7-13-26) [forgot to change this, when the weekly push actually is]
+
+started my speedrun of frontend web dev areas; completed basic html knowledge, and some css knowledge.
 
 
+## Week 5 (7-20-26) [CSS week]
+did quite a bit more of css.
 
 
 

@@ -25,8 +25,6 @@ This site may have something like:
 
 - 🧠 Check my other Repo for my own learning and dev logs; 
 
-- [Dev](https://github.com/Heavenly-Dao/git-web-dev-progression)
-
 ---
 
 ## 🧰 Tech Used
