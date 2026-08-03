@@ -1,4 +1,4 @@
-# Taska and actions to do daily/eventually
+# Tasks and actions to do daily/eventually
 
 
 ## Daily activities

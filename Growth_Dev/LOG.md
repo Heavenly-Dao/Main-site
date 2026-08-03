@@ -51,6 +51,9 @@ started my speedrun of frontend web dev areas; completed basic html knowledge, a
 ## Week 5 (7-20-26) [CSS week]
 did quite a bit more of css.
 
+## Week 6 (7-27-26) [Finish CSS/start JS week]
+finnished css, and started js.
+
 
 
 

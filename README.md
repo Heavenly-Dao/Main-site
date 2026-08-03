@@ -23,8 +23,6 @@ This site may have something like:
 
 - 🛠️ Tools, utility scripts, experiments *(Possibly useful)*
 
-- 🧠 Check my other Repo for my own learning and dev logs; 
-
 ---
 
 ## 🧰 Tech Used

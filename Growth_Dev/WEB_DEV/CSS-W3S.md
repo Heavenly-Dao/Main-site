@@ -434,11 +434,167 @@ align-content, align-items, align-self, display, column-gap, gap, grid, grid-are
 
 like 20 properties gawdamm.
 
+just a note before diving into grids, a wise warning if the 20 properties is not enough of a scare.. it is already quite a lot.
+
+grid-template-columns = number and width of columns
+grid-template-rows = number and height of rows
+grid-template-areas = how to display the cols and rows
+
+first common value of cols, auto. do "auto auto auto" which makes 3 cols, presumably if you do x number of set things that equals the num of cols. if the words are not clear enough; "auto" likely is just 1, "auto auto" is two, example of three, so forth...
+
+mixed width is just using different values i.e "120px, 240px, auto"
+
+general caution is if you add more items than the num of cols, it will auto make new rows
+
+new unit "fr" (is this.. fr (for real..?)) which is "fraction", it hurts and seems weird to visibly see the word "fraction" but if we are past middle school its just basic '1/2' '1/3' '1/4' stuff (likely 1fr equals about the num of cols; 3 is 33.33.... 2 is 50, 4 is 25% and so forth)
+
+some new crazy math variants; repeat. i dont get it quite yet but example is "repeat(3, 1fr)" which though should be simple as three with same 1fr width.
+
+minmax.. guys if we play games this term is obvious no..? simple as setting the smallest (minimal size) to the max (largest size) numbers are subjective.
+
+now to rows. pretty simple; again "num" is affecting first/one row "num num" is 2 rows and the 1 and 2 row.. so forth. 
+
+now to the gaps.. three relevant things are; column, row gaps. and the shorthand gap
+
+column gap just sets the.. gap between columns
+
+row-gap does same but for.. rows
+
+gap is both (shorthand) if one value is both parts, if two, 1st is row, 2nd is columns
+
+now onto alignment..  justify-content, i feel i have mentioned already, if not simple enough to search later values can be; space-evenly, space-around, space-between, center, start, end. this is for horizontal space
+
+simple words of the 6 values;
+space.. evenly the items
+space.. around the items
+space.. between the items
+center.. center
+start.. left
+end.. right
+
+a note is content width has to be less than containers for justify content to apply
 
 
+align-content has same values as above. but is vertical space, same not as above content must have less height than containers height
 
+the three space forms are a bit wonky so i wont even mentioned them again
 
+center is center, start is top, end is bottom
 
+place-content is shorthand for both above things. if one value it applies to both vert and hori space, if two first is align (vert), second is just (hori)
 
+same note of content height and width gotta be less than containers
 
+now to grid items.. which is the bulk of the properties..
 
+this all is some alien speech but ill still go forth; grid-column-start/end just is where an item starts and then ends in column line..?
+
+grid-column is shorthand for both of that, example? is "1 / span 2" starts 1st then spans 2 cols
+
+grid-row-start/end is same as above but for rows. start is where it starts, end is where it.. ends
+
+grid-row is shorthand for both things same as grid-column. example again is "1 / span 2" starts 1st spans 2.
+
+now to.. naming grid items..
+
+grid-template-areas and specifies area in.. the grid
+
+first method is to have 2 named elements already a container and item
+container having "grid-template-areas: 'name name name name name' " for a 5 col grid, and item just gets "grid-area: name"
+
+pretty wonky.
+
+say you have 7 col grid, but want something to take only 3 or 4 simple as adding "." to not name a space example is container "name name name (name) . . ." {notice the space between the dots}
+
+then item gets "grid-area: name"
+
+to set another set row just add another area within a set of "''"s if thats confusing to read another set of *''* 
+
+if you can think and trial and error it is a way to make a quote webpage template form.
+
+alignment is breezed over so i will breeze over it as well;
+
+you can use; justify-self for hori, align-self for vert, and place-self as shorthand for both.
+
+mentioned before im fairly sure but these "self" ones are just each item as a child saying nah to their parent (grid). and going wherever they want
+
+values can be for justify; auto (default), normal, stretch, start, left, center, end, right
+
+for align is; auto (default), normal, stretch, start, end, center
+
+order is if you want to be a menace to assistance tech; order property allows to re-order around content (items) however you want, got 6 items you can order it in such a way; 3,6,1,2,4,5
+absolute menace trait.
+
+there is a 12-column grid layout i will breeze over, might be a good "base" layout but idk guys.
+
+steps are;
+apply display: grid to container 
+
+use grid-template-columns to make 12 columns via "repeat(12, [col-start] 1fr)"
+
+in short is makes 12 columns, names each line as col-start, and makes size 1fr
+
+then using previous concepts place the items however ye wish.
+
+then you could use mediaqueries to make it real responsive form for mobile first then other sizes and all but i have skipped that so idk
+
+there is a concept of @supports, to like if a browser dont support certain element use base css styling, if it does use the arguably usually better css elements.
+
+Now an new section of Topic; Responsive Web Design (RWD)
+
+simple terms, look good any device, size, and such.
+
+quote core parts are; viewport meta tag, *flex*ible layout (grid /+ flex), mediaqueries
+
+first off is viewport; simple example is 
+"``<meta name="viewport" content="width=device-width, initial-scale=1.0">"
+notice how this is the first time i properly can display a tag? something new i learnt and may start using (in relative scale of current, later other things will have more proper examples.)
+
+width part just is to correctly scale to device width, simple as such.
+
+initial-scale just makes the zoom auto 100% to correctly seem right size. (or id assume)
+
+now some rules of RWD is; dont use large fixed-width elements as it makes the page function wonky
+dont rely on content of a certain width to render right, it should quote scale to viewport (what that exactly means. idk guys 🤷)
+then to use mediaqueries to get the screen size and all in css for good appropriate css rules and scaling.
+
+idk about this and will just mention and skip it; RWD - grid view (6 or 12 cols)
+
+now to simple RWD - media queries;
+can add breakpoints which basically means at certain screen sizes change layout and such
+
+you cant really scale to *any* device size and all but the 5 basically type screen size to scale of are the following
+
+max-width 600px, min-width 600px, min-width 768px, min-width 992px, min-width 1200px
+
+sizes correlate roughly to these device types;
+600 (and below) extra small phone and all
+600+ large phones/tablets
+768+ bigger tablets (landscape orientation as well technically)
+992+ laptops/desktops
+1200+ large laptops and desktops and all
+
+likely is a few other ones to scale up in certain tv sizes or on like a car dash.. as examples
+
+based on *orientation* one can change the page as well, i.e if landscape make it baby blue (random as hell change)
+
+hide something if screen size is certain size (for why.. idk)
+
+different screen sizes also mean could be different text size which makes sense
+
+i think ive mentioned it prior somewhere but if one has prefers-reduced-motion enabled animations and such can be turned off as well
+
+there is RWD - Pictures/Images.. but its more or less simply just auto resize based on screen size.. not too revolutionary
+
+same thing for videos.. kinda simple
+
+if you dont get it, i mean its basically just using different auto/ set certain height and width for x screen size and all.
+
+now to frameworks.. supposed easily "baseplate" form of page layouts and all, ill mention it but very likely much better and easier to create your own templates and all (i.e CSS files themselves and smart ordering in html files..)
+
+W3.CSS and Bootstrap are two examples.
+
+W3S (idk if i mentioned what this means yet, but W3Schools)
+now slaps a bunch of different templates, i will mention but i dont think idk ever use any. who knows
+
+CSS for now is over. (7-29-26), took like a week worth of days and sessions to complete.
