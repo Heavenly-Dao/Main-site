@@ -54,7 +54,11 @@ did quite a bit more of css.
 ## Week 6 (7-27-26) [Finish CSS/start JS week]
 finnished css, and started js.
 
-
+## week 7 + 8 + 9 + 10 (8-3-26) [no weeks, school started again]
+    week 7 honestly didnt do anything
+    week 8 kept pushing it off then power out on weekend so.. (8-10-26)
+    week 9 nothings (8-17-26)
+    week 10 also.. nothing (8-24-26)
 
 
 
